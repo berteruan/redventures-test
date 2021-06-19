@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+.hero {
+    min-height: min(100vh, 720px);
+    background: url(./assets/images/hero/mobile/mobile-leaves.png) no-repeat top, url(./assets/images/hero/mobile/mobile-plantperson.png) no-repeat bottom center;
+    background-size: contain, calc(100% + 26px); // 22px padding-horizontal
+    background-color: #75BC97;
+    background-origin: padding-box, content-box;
+    padding: 35px 35px 22px 35px;
+}
+
+.hero .hero-logo a {
+    display: block;
+    width: 209px;
+    height: 25px;
+    background: url(./assets/images/icons/logo-white.svg) no-repeat left top;
+}
+
+.hero-logo a > span {
+    display: none;
+}
+
+.hero .hero-title {
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 49px;
+    color: #fff;
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
