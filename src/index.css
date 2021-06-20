@@ -5,6 +5,16 @@
     font-family: "Montserrat", sans-serif;
 }
 
+::-moz-selection {
+  color: #fff;
+  background: #FD9872;
+}
+
+::selection {
+  color: #fff;
+  background: #FD9872;
+}
+
 .hero {
     min-height: 100vh;
     background: url(./assets/images/hero/mobile/mobile-leaves.png) no-repeat center -220px, url(./assets/images/hero/mobile/mobile-plantperson.png) no-repeat bottom center;
