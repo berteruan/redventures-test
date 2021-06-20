@@ -6,10 +6,10 @@
 }
 
 .hero {
-    min-height: min(100vh, 720px);
-    background: url(./assets/images/hero/mobile/mobile-leaves.png) no-repeat center -40px, url(./assets/images/hero/mobile/mobile-plantperson.png) no-repeat bottom center;
-    background-size: contain, calc(100% + 26px); // 22px padding-horizontal
-    background-color: #75BC97;
+    min-height: 100vh;
+    background: url(./assets/images/hero/mobile/mobile-leaves.png) no-repeat center -220px, url(./assets/images/hero/mobile/mobile-plantperson.png) no-repeat bottom center;
+    background-size: cover, calc(100% + 26px); // 22px padding-horizontal
+    background-color: #75BC97 !important;
     background-origin: padding-box, content-box;
     padding: 35px 35px 22px 35px;
 }
@@ -42,10 +42,6 @@
   display: grid;
   gap: 50px;
   list-style: none;
-}
-
-.filter-list-item {
-
 }
 
 .filter-list-item > img {
@@ -257,14 +253,12 @@
 }
 
 .result-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+  grid-template-rows: 1fr auto;
   width: 260px;
   height: 320px;
   background: #fff;
   border-radius: 5px;
-  // box-shadow: 0px 28px 38px rgba(0, 0, 0, 0.0925754);
   padding: 15px 20px;
   margin-right: 16px;
 }
@@ -274,12 +268,9 @@
 }
 
 .result-card .result-image {
+  height: 100%;
   width: 100%;
   object-fit: contain;
-}
-
-.result-card .result-card-infos {
-
 }
 
 .result-card-title {
@@ -322,6 +313,7 @@
   color: #196146;
   border: 1px solid #15573F;
   border-radius: 25px;
+  cursor: pointer;
   transition: all .2s;
 }
 
@@ -337,4 +329,152 @@
 
 .scroll-to-top-button:hover > img {
   filter: brightness(0) invert(1);
+}
+
+@media (min-width:600px) { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+  .hero {
+    background-position: center -420px, bottom center;
+  }
+}
+
+@media (min-width:801px) { /* tablet, landscape iPad, lo-res laptops ands desktops */
+  .container {
+    width: 80%;
+    max-width: 1280px;
+    margin: auto;
+  }
+
+  .hero {
+    height: 500px;
+    min-height: unset;
+    background: url(./assets/images/hero/desktop/left-leaves.png) no-repeat -220px, url(./assets/images/hero/desktop/plantperson.png) no-repeat 65% center,  url(./assets/images/hero/desktop/right-leaves.png) no-repeat right;
+    background-size: contain, contain, contain;
+    background-origin: padding-box, content-box, padding-box;
+  }
+
+  .hero .hero-title {
+    font-size: 70px;
+    font-weight: bold;
+    line-height: 85px;
+    color: #fff;
+    margin-top: 42px;
+    margin-bottom: 31px;
+  }
+
+  .filter {
+    padding: 55px 0;
+  }
+
+  .filter .filter-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 100px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .filter-list-item > p {
+    max-width: 220px;
+  }
+
+  .select-wrapper {
+    max-width: 220px;
+  }
+
+  .filter-list-item > select {
+    max-width: 220px;
+  }
+
+  .results {
+    padding: 52px 0 65px;
+  }
+
+  .no-result {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  .no-result-text {
+    max-width: 220px;
+  }
+
+  .result .result-icon {
+    height: 78px;
+    margin-bottom: 20px;
+  }
+
+  .result .result-title {
+    font-size: 55px;
+    font-weight: bold;
+    line-height: 67px;
+    margin-bottom: 54px;
+  }
+
+  .result .result-title > br {
+    display: none;
+  }
+
+  .result .result-container {
+    position: unset;
+    width: auto;
+    height: auto;
+    margin: unset;
+    transform: unset;
+    margin-bottom: 60px;
+  }
+
+  .result-horizontal-scroll {
+    position: unset;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px 25px;
+  }
+
+  .result-horizontal-scroll::before, .result-horizontal-scroll::after {
+    display: none;
+  }
+
+  .result-card:first-of-type {
+    grid-row: 1 / 3;
+    grid-column: 1 / 3;
+    padding: 28px;
+  }
+
+  .result-card {
+    width: auto;
+    height: auto;
+    border-radius: 5px;
+    margin: 0px
+  }
+
+  .result-card .result-image {
+    width: 100%;
+    max-height: 80%;
+    object-fit: contain;
+  }
+
+  .result-card:first-of-type .result-card-infos {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .result-card:first-of-type .result-card-title {
+    max-width: 190px;
+    font-size: 35px;
+    line-height: 37px;
+  }
+
+  .result-card:first-of-type .result-card-content {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .result-card:first-of-type .result-card-content > p {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .result-card:first-of-type .result-card-icons > img {
+    height: 25px;
+  }
 }
