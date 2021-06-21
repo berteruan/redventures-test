@@ -47,33 +47,65 @@
                 <div class="select-trigger">
                   <span>Select...</span>
                 </div>
-                <div class="options">
-                  <span class="option selected" data-value="tesla">Tesla</span>
-                  <span class="option" data-value="volvo">Volvo</span>
-                  <span class="option" data-value="mercedes">Mercedes</span>
+                <div class="options" id="sun">
+                  <span class="option" data-value="no">No sunlight</span>
+                  <span class="option" data-value="low">Low sunlight</span>
+                  <span class="option" data-value="high">High sunlight</span>
                 </div>
               </div>
             </div>
+            <!-- <select name="sunlight" id="sunlight-select">
+              <option value="">Select...</option>
+              <option value="no">No sunlight</option>
+              <option value="low">Low sunlight</option>
+              <option value="high">High sunlight</option>
+            </select> -->
           </li>
           <li class="filter-list-item">
             <img class="item-icon" src="./assets/images/illustrations/wateringcan.png" alt="Wateringcan">
             <p>
               <strong>2.</strong> How often do you want to <strong>water</strong> your plant?
             </p>
-            <select name="water" id="water-select">
+            <div class="select-wrapper" tabindex="0">
+              <div class="select">
+                <div class="select-trigger">
+                  <span>Select...</span>
+                </div>
+                <div class="options" id="water">
+                  <span class="option" data-value="rarely">Rarely</span>
+                  <span class="option" data-value="regularly">Regularly</span>
+                  <span class="option" data-value="daily">Daily</span>
+                </div>
+              </div>
+            </div>
+            <!-- <select name="water" id="water-select">
               <option value="">Select...</option>
-              <option value="">Teste</option>
-            </select>
+              <option value="rarely">Rarely</option>
+              <option value="regularly">Regularly</option>
+              <option value="daily">Daily</option>
+            </select> -->
           </li>
           <li class="filter-list-item">
             <img class="item-icon" src="./assets/images/illustrations/dog.png" alt="Dog">
             <p>
               <strong>3.</strong> Do you have pets? Do they <strong>chew</strong> plants?
             </p>
-            <select name="pets" id="pets-select">
+            <div class="select-wrapper" tabindex="0">
+              <div class="select">
+                <div class="select-trigger">
+                  <span>Select...</span>
+                </div>
+                <div class="options" id="pets">
+                  <span class="option" data-value="false">No/They don't care</span>
+                  <span class="option" data-value="true">Yes</span>
+                </div>
+              </div>
+            </div>
+            <!-- <select name="pets" id="pets-select">
               <option value="">Select...</option>
-              <option value="">Teste</option>
-            </select>
+              <option value="false">No/They don't care</option>
+              <option value="true">Yes</option>
+            </select> -->
           </li>
         </ul>
       </section>
@@ -81,15 +113,15 @@
       <!-- Result section -->
       <section class="results">
         <!-- No Results -->
-        <!-- <div class="no-result container">
+        <div class="no-result container">
           <div>
             <h2 class="no-result-title">No results yet…</h2>
             <p class="no-result-text">Use the filters above to find the plant that best fits your environment :)</p>
           </div>
           <img class="no-result-icon" src="./assets/images/illustrations/no-results.png" alt="No results">
-        </div> -->
+        </div>
         <!-- Result -->
-        <div class="result container">
+        <!-- <div class="result container">
           <img class="result-icon" src="./assets/images/illustrations/pick.png" alt="Pick">
           <h2 class="result-title">
             Our picks
@@ -230,9 +262,9 @@
             <img src="./assets/images/icons/arrow-up.svg" alt="Arrow up">
             back to the top
           </button>
-        </div>
+        </div> -->
       </section>
     </main>
   </body>
-  <script src="./script.js"></script>
+  <script src="./scripts/app.js"></script>
 </html>
