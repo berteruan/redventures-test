@@ -4,13 +4,15 @@ import { scrollToSmoothly } from '../../utils/scrollToSmoothly'
 // Mock`s
 import { handleGenerateResultContainerHTML, handleGenerateResultCard, handleGenerateNoResults } from '../mocks/ResultsMock'
 
+// Elements
+const resultsContainer = document.querySelector('.results')
+
 export const Results = {
   functions: {
     handleToggleLoading: () => {
-      console.log('Toogle Loading...')
+      resultsContainer.classList.toggle('loading')
     },
     handleUpdateResultItems: ({ detail: data }) => {
-      const resultsContainer = document.querySelector('.results')
       resultsContainer.innerHTML = '';
 
       if (data.error === 'No plants found') {
@@ -21,6 +23,7 @@ export const Results = {
 
       resultsContainer.insertAdjacentHTML('beforeend', handleGenerateResultContainerHTML())
       const resultDataContainer = document.querySelector('.result-horizontal-scroll')
+      document.querySelector('.scroll-to-top-button').addEventListener("click", () => scrollToSmoothly(), false)
 
       data.map(item => resultDataContainer.insertAdjacentHTML('beforeend', handleGenerateResultCard(item)))
       scrollToSmoothly(document.querySelector('.results'))
