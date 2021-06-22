@@ -2,9 +2,9 @@
   "name": "front-end-test-2",
   "version": "1.0.0",
   "description": "Simple Parcel Sandbox",
-  "main": "src/index.html",
+  "main": "index.html",
   "scripts": {
-    "start": "parcel src/index.html --open"
+    "start": "parcel index.html --open"
   },
   "dependencies": {
     "parcel": "1.12.4"
