@@ -1,9 +1,13 @@
+// Services
 import { api } from '../../services/api'
-// Atualizar componente com valores dinâmicos
+
+// Utils
+import { scrollToSmoothly } from '../../utils/scrollToSmoothly'
 
 export const Filter = {
   state: {
     data: {},
+    isFisrtLoading: true,
   },
   functions: {
     handleGetSelectValues: async () => {
@@ -18,6 +22,7 @@ export const Filter = {
     },
     handleSubmitFilter: async () => {
       window.dispatchEvent(new CustomEvent('handleToggleLoading'))
+      if (Filter.state.isFisrtLoading) scrollToSmoothly(document.querySelector('.results'))
 
       try {
         let data = await api({ method: 'GET', queryParams: { ...Filter.state.data } })
@@ -31,6 +36,7 @@ export const Filter = {
         })
 
         window.dispatchEvent(new CustomEvent('updateResultItems', { detail: data }))
+        Filter.state.isFisrtLoading = false
       } catch (error) {
         console.log(error)
       } finally {
