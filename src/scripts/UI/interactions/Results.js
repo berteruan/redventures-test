@@ -1,5 +1,8 @@
-import { handleGenerateResultContainerHTML, handleGenerteResultCard } from '../mocks/ResultContainer'
+// Utils
+import { scrollToSmoothly } from '../../utils/scrollToSmoothly'
 
+// Mock`s
+import { handleGenerateResultContainerHTML, handleGenerateResultCard, handleGenerateNoResults } from '../mocks/ResultsMock'
 
 export const Results = {
   functions: {
@@ -7,14 +10,20 @@ export const Results = {
       console.log('Toogle Loading...')
     },
     handleUpdateResultItems: ({ detail: data }) => {
-      console.log(data)
       const resultsContainer = document.querySelector('.results')
       resultsContainer.innerHTML = '';
+
+      if (data.error === 'No plants found') {
+        resultsContainer.insertAdjacentHTML(`beforeend`, handleGenerateNoResults())
+
+        return scrollToSmoothly(document.querySelector('.results'))
+      }
+
       resultsContainer.insertAdjacentHTML('beforeend', handleGenerateResultContainerHTML())
       const resultDataContainer = document.querySelector('.result-horizontal-scroll')
 
-      data.map(item => resultDataContainer.insertAdjacentHTML('beforeend', handleGenerteResultCard(item)))
-
+      data.map(item => resultDataContainer.insertAdjacentHTML('beforeend', handleGenerateResultCard(item)))
+      scrollToSmoothly(document.querySelector('.results'))
     }
   },
   listeners: () => {

@@ -21,21 +21,34 @@ export const handleGenerateResultContainerHTML = () => {
     `;
 }
 
-export const handleGenerteResultCard = item => {
+export const handleGenerateResultCard = item => {
   return html`
-    <div class="result-card">
+    <div class="result-card ${item.staff_favorite && 'staff-favorite'}">
       <img class="result-image" src="${item.url}" alt="${item.name}">
       <div class="result-card-infos">
         <h3 class="result-card-title">${item.name}</h3>
         <div class="result-card-content">
           <p>$${item.price}</p>
           <div class="result-card-icons">
-            <img src="./assets/images/icons/pet.svg" alt="Pet">
-            <img src="./assets/images/icons/low-sun.svg" alt="Low Sun">
-            <img src="./assets/images/icons/1-drop.svg" alt="1 Drop">
+            <span class="card-icon icon-toxicity-${item.toxicity}"></span>
+            <span class="card-icon icon-sun-${item.sun}"></span>
+            <span class="card-icon icon-water-${item.water}"></span>
           </div>
         </div>
       </div>
     </div>
   `
+}
+
+export const handleGenerateNoResults = () => {
+  return html`
+    <!-- No Results -->
+    <div class="no-result container">
+      <div>
+        <h2 class="no-result-title">No plants found…</h2>
+        <p class="no-result-text">Sorry, no plants found with the filters selected above :(</p>
+      </div>
+      <img class="no-result-icon" src="${require('../../../assets/images/illustrations/no-results.png')}" alt="No results">
+    </div>
+  `;
 }
